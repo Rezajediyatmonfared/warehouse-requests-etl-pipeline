@@ -4,8 +4,14 @@ This folder contains VBA (Visual Basic for Applications) automation macros desig
 
 These macros serve as a robust alternative in restricted or offline environments where external Python packages cannot be installed.
 
-## Project Context & Purpose
-In industrial warehouse management, tracking material movements requires handling thousands of individual exit requests. These records often arrive as fragmented Excel files, making manual aggregation impossible. These macros automate the consolidation of these records into structured, analysis-ready formats.
+## Core Automation Logic
+Both macros follow a standardized 5-step ETL (Extract, Transform, Load) workflow to ensure consistency:
+
+1. **Navigate:** Access the specified folder path containing the raw Excel files.
+2. **Find:** Scan the directory to identify all valid Excel workbooks while filtering out temporary/lock files (e.g., `~$`).
+3. **Open:** Sequentially open each file in a non-intrusive, read-only mode.
+4. **Extract:** Read the relevant worksheet or data range from each file.
+5. **Load:** Paste or stack the data into your target destination (either as a new sheet or appended to a master list).
 
 ---
 
@@ -22,6 +28,7 @@ In industrial warehouse management, tracking material movements requires handlin
 ### 2. `Module_MergeToMasterSheet.bas`
 - **Purpose:** Merges all warehouse exit files sequentially into a single unified worksheet (`MasterData`), stacking each file's complete layout and headers one below the other.
 - **Key Features:**
+  - **Sequential Stacking:** Data from File 2 is appended directly below File 1, and so on.
   - Preserves full headers (document numbers, dates, and warehouse tracking details) without data loss.
   - Inserts one blank row between records for clear visual separation.
   - Automatically configures right-to-left layout (`RTL`) for document standards.
@@ -35,3 +42,5 @@ In industrial warehouse management, tracking material movements requires handlin
 3. Select either `.bas` file (`Module_MergeToSheets.bas` or `Module_MergeToMasterSheet.bas`).
 4. Open the imported module and update the folder path constant at the top of the script:
 ```vba
+   FolderPath = "D:\Your\Folder\Path\"
+   
