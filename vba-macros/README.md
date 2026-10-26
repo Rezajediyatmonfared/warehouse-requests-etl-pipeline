@@ -1,11 +1,11 @@
 # VBA Macros for Warehouse Exit Requests ETL Pipeline
 
-This folder contains VBA (Visual Basic for Applications) automation macros designed for processing and consolidating thousands of warehouse exit request files (permanent, temporary, and consignment) directly within Microsoft Excel. 
+This folder contains VBA (Visual Basic for Applications) automation macros designed for processing and consolidating thousands of warehouse exit request files—including permanent, temporary, and consignment (custodial) records—directly within Microsoft Excel.
 
 These macros serve as a robust alternative in restricted or offline environments where external Python packages cannot be installed.
 
 ## Project Context & Purpose
-In industrial warehouse management, tracking material movements requires handling thousands of individual exit requests (`درخواست خروج دائم، موقت و امانی`). These macros automate the consolidation of these fragmented records into structured, analysis-ready formats.
+In industrial warehouse management, tracking material movements requires handling thousands of individual exit requests. These records often arrive as fragmented Excel files, making manual aggregation impossible. These macros automate the consolidation of these records into structured, analysis-ready formats.
 
 ---
 
@@ -24,7 +24,7 @@ In industrial warehouse management, tracking material movements requires handlin
 - **Key Features:**
   - Preserves full headers (document numbers, dates, and warehouse tracking details) without data loss.
   - Inserts one blank row between records for clear visual separation.
-  - Automatically configures right-to-left layout (`RTL`) for Persian document standards.
+  - Automatically configures right-to-left layout (`RTL`) for document standards.
 
 ---
 
@@ -35,6 +35,5 @@ In industrial warehouse management, tracking material movements requires handlin
 3. Select either `.bas` file (`Module_MergeToSheets.bas` or `Module_MergeToMasterSheet.bas`).
 4. Open the imported module and update the folder path constant at the top of the script:
 ```vba
+   FolderPath = "D:\Your\Folder\Path\"
    
-   
-
