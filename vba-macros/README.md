@@ -35,6 +35,6 @@ In industrial warehouse management, tracking material movements requires handlin
 3. Select either `.bas` file (`Module_MergeToSheets.bas` or `Module_MergeToMasterSheet.bas`).
 4. Open the imported module and update the folder path constant at the top of the script:
 ```vba
-   FolderPath = "D:\Your\Folder\Path\"
+   
    
 
